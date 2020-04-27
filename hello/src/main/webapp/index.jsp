@@ -1,7 +1,5 @@
 <html>
-
-<body> 
-   ฤ๚บร,today is <% out.print(new  java.util.Date());%>  
- </body>
-
+<body>
+<h2>Hello World!</h2>
+</body>
 </html>

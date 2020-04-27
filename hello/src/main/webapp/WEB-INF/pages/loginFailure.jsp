@@ -5,7 +5,7 @@
 <head>
 </head>
  <body> 
-   您好,today is <% out.print(new  java.util.Date());%>  
+   	用户名或者口令不正确，请<a href="${loginUrl}">重新登陆！
    </body>
 
 </html>

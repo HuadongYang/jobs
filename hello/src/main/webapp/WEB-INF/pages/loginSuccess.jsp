@@ -5,7 +5,7 @@
 <head>
 </head>
  <body> 
-   您好,today is <% out.print(new  java.util.Date());%>  
+   	${username} 你好，欢迎登陆网上书店。
    </body>
 
 </html>
