@@ -14,14 +14,14 @@ public class Prac2Api {
 	
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String getPage() {
-		return "showrec/showrec";
+		return "prac2/showrec";
 	}
 	
 	@RequestMapping(value = "/showTable", method = RequestMethod.GET)
 	public ModelAndView getTablePage(ModelAndView mv) {
 		List<String> week = Arrays.asList("星期一","星期二","星期三","星期四","星期五","星期六","星期日");
 		List<String> fruit = Arrays.asList("苹果","香蕉", "芒果", "梨子", "哈密瓜", "西瓜", "猕猴桃" );
-		mv.setViewName("showrec/showtable");
+		mv.setViewName("prac2/showtable");
 		mv.addObject("week", week);
 		mv.addObject("fruit", fruit);
 		return mv;
