@@ -12,17 +12,18 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/hello")
-public class HelloApi {
+public class Prac1Api {
 	
 	private static Map<String, String> users = new HashMap<String, String>();
 	
 	
 	private String host = "http://localhost:8080";
 	private String rootPath = "/hello";
-	private static String loginPage = "login";
-	private static String loginSuccessPage = "loginSuccess";
-	private static String loginFailurePage = "loginFailure";
-	private static String helloPage = "hello";
+	private static String path = "/hello";
+	private static String loginPage = path + "/login";
+	private static String loginSuccessPage = path + "/loginSuccess";
+	private static String loginFailurePage = path + "/loginFailure";
+	private static String helloPage = path + "/hello";
 	static {
 		users.put("admin", "admin");
 	}
@@ -49,7 +50,7 @@ public class HelloApi {
 	@RequestMapping(value = "/loginFailure", method = RequestMethod.GET)
 	public ModelAndView loginFailure(ModelAndView mv) {
 		mv.setViewName(loginFailurePage);
-		String loginUrl = host + rootPath + "/" + loginPage;
+		String loginUrl = host + rootPath + "/login";
 		mv.addObject("loginUrl", loginUrl);
 		return mv;
 	}
@@ -58,9 +59,9 @@ public class HelloApi {
 	public String login(@RequestParam("username") String username, @RequestParam("password") String password) {
 		String realPassword = users.get(username);
 		if (realPassword != null && realPassword.equals(password)) {
-			return "redirect:"+rootPath+"/ "+loginSuccessPage + "?username=" + username;
+			return "redirect:"+rootPath+"/loginSuccess?username=" + username;
 		}
 			
-		return "redirect:"+rootPath+"/"+loginFailurePage;
+		return "redirect:"+rootPath+"/loginFailure";
 	}
 }
