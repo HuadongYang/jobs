@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class Prac3Api {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
-	
+	public String getRegisterPage() {
+		return "prac3/register";
+	}
 
 }
