@@ -103,10 +103,11 @@ pageEncoding="utf-8"%>
             </td>
         </tr>
         <tr>
-            <td colspan="4" >
-                <input type="submit" value="提交" />
+            <td >
+            </td>
+            <td>
+            	<input type="submit" value="提交" />
                 <input type="submit" value="重置" />
-                
             </td>
         </tr>
     </table>
