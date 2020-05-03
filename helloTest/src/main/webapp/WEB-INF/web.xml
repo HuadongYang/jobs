@@ -7,10 +7,6 @@
     <servlet-name>default</servlet-name>
     <url-pattern>*.html</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.jsp</url-pattern>
-  </servlet-mapping>
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath*:applicationContext.xml</param-value>
@@ -28,7 +24,7 @@
     	</description>
     <display-name>Prac4Servlet</display-name>
     <servlet-name>Prac4Servlet</servlet-name>
-    <servlet-class>com.practice.api.Prac4Servlet</servlet-class>
+    <servlet-class>com.practice.prac4.Prac4Servlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Prac4Servlet</servlet-name>
@@ -36,24 +32,52 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>Prac5</display-name>
-    <servlet-name>Prac5</servlet-name>
-    <servlet-class>com.practice.api.Prac5</servlet-class>
+    <display-name>Prac5Login</display-name>
+    <servlet-name>Prac5Login</servlet-name>
+    <servlet-class>com.practice.prac5.Prac5Login</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Prac5</servlet-name>
+    <servlet-name>Prac5Login</servlet-name>
     <url-pattern>/prac5Login</url-pattern>
   </servlet-mapping>
-  
-  
   <servlet>
     <description></description>
     <display-name>Prac5PortalServlet</display-name>
     <servlet-name>Prac5PortalServlet</servlet-name>
-    <servlet-class>com.practice.api.Prac5PortalServlet</servlet-class>
+    <servlet-class>com.practice.prac5.Prac5PortalServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Prac5PortalServlet</servlet-name>
     <url-pattern>/prac5Portal</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Prac5WelcomeServlet</display-name>
+    <servlet-name>Prac5WelcomeServlet</servlet-name>
+    <servlet-class>com.practice.prac5.Prac5WelcomeServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Prac5WelcomeServlet</servlet-name>
+    <url-pattern>/prac5Welcome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckServlet</display-name>
+    <servlet-name>CheckServlet</servlet-name>
+    <servlet-class>com.practice.prac7.CheckServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckServlet</servlet-name>
+    <url-pattern>/checkServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Prac8Servlet</display-name>
+    <servlet-name>Prac8Servlet</servlet-name>
+    <servlet-class>com.practice.prac8.Prac8Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Prac8Servlet</servlet-name>
+    <url-pattern>/prac8</url-pattern>
   </servlet-mapping>
 </web-app>

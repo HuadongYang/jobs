@@ -1,31 +1,23 @@
-package com.practice.api;
+package com.practice.prac5;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class Prac4Servlet
+ * Servlet implementation class Prac5WelcomeServlet
  */
-public class Prac4Servlet extends HttpServlet {
+public class Prac5WelcomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	private static Map<String, String> users = new HashMap<>();
-	
-	static{
-		users.put("admin", "admin");
-	}
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Prac4Servlet() {
+    public Prac5WelcomeServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,17 +27,20 @@ public class Prac4Servlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("doget");
-		String name = request.getParameter("username");
-		String password = request.getParameter("password");
-		if (password!= null && password.equals(users.get(name))) {
-			HttpSession session=request.getSession(); 
-			session.setAttribute("userName",name);
-			response.sendRedirect("WebContent/prac4/loginSuccess.html");
-		}else {
-			response.sendRedirect("WebContent/prac4/LoginFailure.html");
-		}
-		
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setCharacterEncoding("utf-8");
+		response.setHeader("Content-Type", "text/html;charset=utf-8");
+		PrintWriter writer = response.getWriter();
+		String userName = request.getParameter("username");
+		String html = "<html xmlns=\"http://www.w3.org/1999/xhtml\">\n" + 
+				"<head>\n" + 
+				"</head>\n" + 
+				" <body> \n" + 
+				userName + "   	 你好，欢迎登陆。\n" + 
+				"   </body>\n" + 
+				"\n" + 
+				"</html>";
+		writer.println(html);
 	}
 
 	/**
@@ -53,6 +48,7 @@ public class Prac4Servlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
