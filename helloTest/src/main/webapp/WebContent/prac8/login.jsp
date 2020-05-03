@@ -7,27 +7,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
  <body> 
- <%!
- 	private static Set<String> sessionSet = new HashSet<String>();
-	private static int counter = 0;
- %>
- <%
- 	String sessionId = request.getRequestedSessionId();
- 	System.out.println("sessionId: " + sessionId);
- 	if (!sessionSet.contains(sessionId)) {
- 		counter ++;
- 		sessionSet.add(sessionId);
-	}
- 	System.out.println("set : " + sessionSet);
- %>
  
  
-<form action="/checkServlet" method="post">
+<form action="/prac8" method="post">
   用户名<input type="text" name="username" /></p>
  密码<input type="password" name="password" /></p>
   <input type="submit" value="Submit" />
   <br/>
-  您是第<%=counter%>个访问者
 </form>
    </body>
 </html>

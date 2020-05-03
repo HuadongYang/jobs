@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletResponse;
 public class Prac8Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	public static final String url = "jdbc:mysql://127.0.0.1/student";  
-    public static final String name = "com.mysql.jdbc.Driver";  
+	public static final String url = "jdbc:mysql://127.0.0.1/user?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT";  
+    public static final String name = "com.mysql.cj.jdbc.Driver";  
     public static final String user = "root";  
     public static final String password = "root";  
     public static final String sql = "select * from user";  
@@ -50,6 +50,7 @@ public class Prac8Servlet extends HttpServlet {
 			while(re.next()) {
 				users.put(re.getString("name"), re.getString("password"));
 			}
+			System.out.println("users: " + users);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -66,13 +67,13 @@ public class Prac8Servlet extends HttpServlet {
 		String userName = parameterMap.get("username")[0];
 		String password = parameterMap.get("password")[0];
 		if(isUser(userName, password)) {
-			request.setAttribute("content", "æ¬¢è¿Žä½ ï¼Œ"+ userName);
-            request.getRequestDispatcher("/WebContent/prac7/check.jsp").forward(request, response);
+			request.setAttribute("content", "»¶Ó­Äã£¬"+ userName);
+            request.getRequestDispatcher("/WebContent/prac8/check.jsp").forward(request, response);
 
 //			response.sendRedirect("/WebContent/prac7/check.jsp");
 		}else {
-			request.setAttribute("content", "ç™»å½•å¤±è´¥");
-			request.getRequestDispatcher("/WebContent/prac7/check.jsp").forward(request, response);
+			request.setAttribute("content", "µÇÂ¼Ê§°Ü");
+			request.getRequestDispatcher("/WebContent/prac8/check.jsp").forward(request, response);
 //			response.sendRedirect("/WebContent/prac7/check.jsp");
 		}
 	}
