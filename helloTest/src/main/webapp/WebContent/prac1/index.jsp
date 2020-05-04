@@ -9,8 +9,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'hello.jsp' starting page</title>
-    
+    <title>My JSP 'index.jsp' starting page</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,10 +18,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-
+	
   </head>
   
   <body>
-  	您好,today is <% out.print(new  java.util.Date().toLocaleString());%>  
+  	<h1>用户登录</h1>
+
+  	<form method="get" action="/Hello/result.jsp">
+  	
+  		用户名：
+  	<input id="username" type="text" name="username" />
+     <br>
+     	口令：
+     <input id="password" type="password" name="password" />
+     <br>
+    
+      <input type="reset" value="重置">
+      <input type="submit" value="提交" />
+    
+     </form>
+   
   </body>
 </html>
