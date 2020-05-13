@@ -67,12 +67,12 @@ public class Prac8Servlet extends HttpServlet {
 		String userName = parameterMap.get("username")[0];
 		String password = parameterMap.get("password")[0];
 		if(isUser(userName, password)) {
-			request.setAttribute("content", "»¶Ó­Äã£¬"+ userName);
+			request.setAttribute("content", "æ¬¢è¿Žä½ "+ userName);
             request.getRequestDispatcher("/WebContent/prac8/check.jsp").forward(request, response);
 
 //			response.sendRedirect("/WebContent/prac7/check.jsp");
 		}else {
-			request.setAttribute("content", "µÇÂ¼Ê§°Ü");
+			request.setAttribute("content", "ç™»å½•å¤±è´¥ ");
 			request.getRequestDispatcher("/WebContent/prac8/check.jsp").forward(request, response);
 //			response.sendRedirect("/WebContent/prac7/check.jsp");
 		}
