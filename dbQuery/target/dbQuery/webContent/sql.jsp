@@ -20,6 +20,7 @@
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 
+
     <!--     <script type="text/javascript" src="static/js/index.js"></script>
      -->
     <style type="text/css">
@@ -29,6 +30,17 @@
         }
 
     </style>
+
+    <script type="text/javascript">
+        function changeFrameHeight() {
+            var ifm = document.getElementById("iframepage");
+            ifm.height = document.documentElement.clientHeight;
+        }
+
+        window.onresize = function () {
+            changeFrameHeight();
+        }
+    </script>
 
 </head>
 <body>
@@ -55,9 +67,9 @@
                        aria-expanded="false">分类查询 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
 
-                        <li><a href="area_search">案件类型</a></li>
-                        <li><a href="area_search">裁判时间</a></li>
-                        <li><a href="area_search">法院层级</a></li>
+                        <li><a href="case_category.jsp" target="iframe_a">案件类型</a></li>
+                        <li><a href="time_category.jsp" target="iframe_a">裁判时间</a></li>
+                        <li><a href="level_category.jsp" target="iframe_a">法院层级</a></li>
                         <%--                        <li><a href="#">Something else here</a></li>--%>
                         <%--                        <li role="separator" class="divider"></li>--%>
                         <%--                        <li class="dropdown-header">Nav header</li>--%>
@@ -69,52 +81,7 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
-<div class="container">
-    <div class="row">
-
-        <div class="col-lg-12">
-            <label for="form0" class="lable0">关键字搜索</label>
-            <form class="form-inline" id="form0" target="form1" action="/content">
-                <div class="input-group">
-                    <input type="text" class="form-control" name="key">
-                    <div class="input-group-btn">
-                        <input type="submit" value="搜索"/>
-                        <%--<button type="button" class="btn btn-default mybutton0"><span class="glyphicon glyphicon-search"></span></button>--%>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    <iframe name="form1" id="form1" style="display:none"></iframe>
-    <label for="mydiv1" class="lable1">文书展示</label>
-    <div id="mydiv1">
-        <div class="row">
-            <!-- 文书展示区 -->
-            <div class="col-md-6 mydiv0" id="heat">
-                <pre id="jsonShow" class="resJson"></pre>
-            </div>
-
-
-        </div>
-    </div>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $("#form1").load(function(){
-
-            var text = $(this).contents().find("body").text();      //获取到的是json的字符串
-
-            var j = $.parseJSON(text);                                         //json字符串转换成json对象
-
-            $("#jsonShow").text(j);
-
-        })
-
-    })
-</script>
-
-
+<iframe src="query.jsp" name="iframe_a" id="iframepage" width="800" onload="changeFrameHeight()" frameborder="0">
+</iframe>
 </body>
 </html>

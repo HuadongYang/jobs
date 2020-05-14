@@ -6,7 +6,26 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bb34626a-c94b-4768-84e3-725a1462f379" name="Default Changelist" comment="" />
+    <list default="true" id="ab66c353-5bf0-4fc8-a602-b457071ecf55" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/jobs/dbQuery/dto/CaseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/case_category.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/level_category.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/query.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/time_category.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dbQuery.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/jobs/dbQuery/api/ContentApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jobs/dbQuery/api/ContentApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/webContent/sql.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/webContent/sql.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dbQuery.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/dbQuery/webContent/sql.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery/webContent/sql.jsp" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +36,12 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -27,26 +50,14 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectId" id="1bptW5pWYzeHooyZmRn2kNFvj9X" />
+  <component name="ProjectId" id="1bsQ3jNghya9Hhi1dbweZstiUYk" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/WEB-INF" />
-    <property name="nodejs.protractor.protractor_package" value="" />
-    <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\code\jobs\dbQuery\src\main\webapp" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\code\jobs\dbQuery\src\main\webapp\WEB-INF" />
-      <recent name="G:\code\jobs\dbQuery\src\main\webContent" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -61,7 +72,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="local" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.20" ALTERNATIVE_JRE_ENABLED="false">
+    <configuration name="lcoal" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.20" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="dbQuery:war">
@@ -71,7 +82,7 @@
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="Unnamed_dbQuery" />
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_dbQuery_2" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -79,7 +90,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50932" />
+        <option name="DEBUG_PORT" value="51238" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -139,16 +150,27 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bb34626a-c94b-4768-84e3-725a1462f379" name="Default Changelist" comment="" />
-      <created>1589340890338</created>
+      <changelist id="ab66c353-5bf0-4fc8-a602-b457071ecf55" name="Default Changelist" comment="" />
+      <created>1589418123291</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1589340890338</updated>
-      <workItem from="1589340893181" duration="11506000" />
+      <updated>1589418123291</updated>
+      <workItem from="1589418126842" duration="11940000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
