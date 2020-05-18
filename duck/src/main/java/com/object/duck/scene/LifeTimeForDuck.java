@@ -8,7 +8,10 @@ import com.object.duck.model.Lily;
 import com.object.duck.model.Pond;
 import com.object.duck.pool.DuckPool;
 import com.object.duck.pool.LiLyPool;
+import com.object.duck.vo.Position;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.List;
 import java.util.Random;
 
@@ -17,16 +20,30 @@ import java.util.Random;
  * @author: Yanghd
  * @create: 2020-05-16 13:25
  **/
-public class LifeTimeForDuck {
+public class LifeTimeForDuck extends JPanel {
 
     private static final Integer weightThresholdOfDeath = 5;
     private static final Integer weightThresholdOfHead = 80;
 
     private static final int deathInterval = 10;
 
+    private Duck duck;
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        Position currentPosition = duck.getCurrentPosition();
+        Integer x = currentPosition.getX();
+        Integer y = currentPosition.getY();
+        g.setColor(Color.blue);//重新设定画笔颜色
+        g.fillOval(x, y, 50, 50);//画一个实心圆
+        //g.fillRect(x+20, y+100,10,30);
+    }
+
     public void lifeTime(String name, Pond pond) {
 
         Duck duck = DuckFactory.born(name);
+        this.duck = duck;
         System.out.println("小鸭子出生，name:" + name);
         DuckPool.registerDuckInPool(duck);
         System.out.println("鸭子：" + name + "注册");
@@ -59,13 +76,14 @@ public class LifeTimeForDuck {
             eatLily(duck, day);
 
             duckMove.move(pond, 5, getRandomAngle());
-            //System.out.println("鸭子：" + name + " 我移动位置了：" + duck.getCurrentPosition());
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             day++;
+
+            repaint();
         }
 
     }
@@ -76,7 +94,6 @@ public class LifeTimeForDuck {
         for (Lily lily : lilies) {
             boolean release = LiLyPool.release(lily.getName());
             if (release) {
-                //System.out.println("鸭子：" + duck.getName() + " 位置：" +duck.getCurrentPosition() + " 吃了一个睡莲:" + lily.getName() + "， 位置： "+lily.getCurrentPosition()+"要长大了");
                 duck.grow();
                 duck.setLatestEatDay(day);
             }
@@ -87,5 +104,8 @@ public class LifeTimeForDuck {
         Random rand = new Random();
         return rand.nextInt(360);
     }
+
+
+
 
 }
