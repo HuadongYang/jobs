@@ -10,7 +10,8 @@ public class Position {
 
     private Integer y;
 
-    public Position(){}
+    public Position() {
+    }
 
     public Position(int x, int y) {
         this.x = x;
@@ -18,8 +19,12 @@ public class Position {
     }
 
     public boolean isEquals(Position other) {
-        if (this.x != null && this.y != null && other.getX() != null && other.getY() != null
-        && this.x.equals(other.getX()) && this.y.equals(other.getY())) {
+        if (this.x != null
+                && this.y != null
+                && other.getX() != null
+                && other.getY() != null
+                && this.x.equals(other.getX())
+                && this.y.equals(other.getY())) {
             return true;
         }
         return false;
@@ -39,5 +44,11 @@ public class Position {
 
     public void setY(Integer y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        String json = "x:[" + x + "], y:[" + y + "]";
+        return json;
     }
 }

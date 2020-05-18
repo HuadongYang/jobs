@@ -1,13 +1,17 @@
 package com.object.duck.model;
 
+import com.object.duck.vo.DuckQueue;
+import com.object.duck.vo.HeadDuckMessage;
 import com.object.duck.vo.Position;
+
+import java.util.Objects;
 
 /**
  * @description:
  * @author: Yanghd
  * @create: 2020-05-15 23:23
  **/
-public class Duck {
+public class Duck extends BaseModel{
 
     private String name;
 
@@ -19,20 +23,28 @@ public class Duck {
 
     private DuckType type;
 
-    private Position currentPosition;
-
     private Position prePosition;
 
-    private Duck preDuck;
+    private DuckQueue duckQueue;
 
-    private Duck nextDuck;
+    public void receiveHeadMessage(HeadDuckMessage headDuckMessage) {
 
-    private Duck headDuck;
+        this.duckQueue.setHead(headDuckMessage.getHead());
+
+        this.duckQueue.setPreDuck(headDuckMessage.getPreDuck());
+    }
+
+    public void setDuckQueue(DuckQueue duckQueue) {
+        this.duckQueue = duckQueue;
+    }
 
     public void grow() {
         this.weight += 5;
     }
 
+    public DuckQueue getDuckQueue() {
+        return duckQueue;
+    }
 
 
     public Position getPrePosition() {
@@ -43,33 +55,9 @@ public class Duck {
         this.prePosition = prePosition;
     }
 
-    public Duck getHeadDuck() {
-        return headDuck;
-    }
-
-    public void setHeadDuck(Duck headDuck) {
-        this.headDuck = headDuck;
-    }
-
-    public Duck getPreDuck() {
-        return preDuck;
-    }
-
-    public void setPreDuck(Duck preDuck) {
-        this.preDuck = preDuck;
-    }
-
-    public Duck getNextDuck() {
-        return nextDuck;
-    }
-
-    public void setNextDuck(Duck nextDuck) {
-        this.nextDuck = nextDuck;
-    }
-
 
     public void loseWeight() {
-        this.weight -= 3;
+        this.weight -= 1;
 
     }
 
@@ -80,15 +68,6 @@ public class Duck {
     public void whistles() {
 
     }
-
-    public void setCurrentPosition(Position currentPosition) {
-        this.currentPosition = currentPosition;
-    }
-
-    public Position getCurrentPosition() {
-        return this.currentPosition;
-    }
-
 
     public static enum DuckType {
         HEAD,
@@ -134,5 +113,22 @@ public class Duck {
 
     public void setType(DuckType type) {
         this.type = type;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Duck duck = (Duck) o;
+        return this.name.equals(duck.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 }

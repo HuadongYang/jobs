@@ -1,19 +1,20 @@
 package com.object.duck.behave;
 
-import com.object.duck.model.Duck;
+import com.object.duck.model.BaseModel;
 import com.object.duck.model.Pond;
-import com.object.duck.vo.Position;
 
 /**
  * todo: 池塘边绕行
  *
  * todo: 遇到岩石绕行
  */
-public interface DuckMove {
+public abstract class DuckMove extends ModelInitPosition {
 
-    void initPosition(Pond pond);
+    public DuckMove(BaseModel baseModel) {
+        super(baseModel);
+    }
 
-    void move(Pond pond, Integer step, double angle);
+    public abstract void move(Pond pond, Integer step, double angle);
 
 
 }

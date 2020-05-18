@@ -12,33 +12,41 @@ import java.util.Random;
  * @author: Yanghd
  * @create: 2020-05-16 13:39
  **/
-public class DuckMoveImpl implements DuckMove {
+public class DuckMoveImpl extends DuckMove {
 
     private Duck duck;
 
     public DuckMoveImpl(Duck duck) {
+        super(duck);
         this.duck = duck;
     }
 
+    @Override
     public void initPosition(Pond pond) {
         Random rand = new Random();
         Integer nextX = rand.nextInt(pond.getMaxX() - pond.getMinX()) + pond.getMinX();
         Integer nextY = rand.nextInt(pond.getMaxY() - pond.getMinY()) + pond.getMinY();
 
         duck.setCurrentPosition(new Position(nextX, nextY));
+        //duck.setPrePosition(new Position(nextX, nextY));
     }
 
+    @Override
     public void move(Pond pond, Integer step, double angle) {
-        if (duck.getPreDuck() == null) {
+        if (duck.getDuckQueue() == null || duck.getDuckQueue().getPreDuck() == null || duck.getType().equals(Duck.DuckType.HEAD)) {
             moveToNextPosition(pond, step, angle);
         }else {
-            followPreDuck(duck.getPreDuck());
+            followPreDuck(duck.getDuckQueue().getPreDuck());
         }
     }
 
-    private void followPreDuck(Duck preDudk) {
+    private void followPreDuck(Duck preDuck) {
+
+        if (preDuck.getPrePosition() == null) {
+            return;
+        }
         duck.setPrePosition(duck.getCurrentPosition());
-        duck.setCurrentPosition(preDudk.getPrePosition());
+        duck.setCurrentPosition(preDuck.getPrePosition());
     }
 
     private void moveToNextPosition(Pond pond, Integer step, double angle) {

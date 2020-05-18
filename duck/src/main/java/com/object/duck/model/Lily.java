@@ -7,9 +7,8 @@ import com.object.duck.vo.Position;
  * @author: Yanghd
  * @create: 2020-05-15 23:54
  **/
-public class Lily {
+public class Lily extends BaseModel {
     private String name;
-    private Position position;
 
     public String getName() {
         return name;
@@ -19,11 +18,4 @@ public class Lily {
         this.name = name;
     }
 
-    public Position getPosition() {
-        return position;
-    }
-
-    public void setPosition(Position position) {
-        this.position = position;
-    }
 }

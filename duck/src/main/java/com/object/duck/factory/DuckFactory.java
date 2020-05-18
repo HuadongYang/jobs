@@ -1,9 +1,7 @@
 package com.object.duck.factory;
 
-import com.object.duck.behave.DuckMove;
-import com.object.duck.behave.impl.DuckMoveImpl;
 import com.object.duck.model.Duck;
-import com.object.duck.model.Pond;
+import com.object.duck.vo.DuckQueue;
 
 /**
  * @description:
@@ -12,13 +10,14 @@ import com.object.duck.model.Pond;
  **/
 public class DuckFactory {
 
-    public static Duck born(String name, Pond pond) {
+    public static Duck born(String name) {
         Duck duck = new Duck();
         duck.setName(name);
         duck.setType(Duck.DuckType.NORMAL);
         duck.setColor("#FFFF00");
-        duck.setWeight(10);
+        duck.setWeight(50);
         duck.setLatestEatDay(0);
+        duck.setDuckQueue(new DuckQueue());
         return duck;
     }
 }

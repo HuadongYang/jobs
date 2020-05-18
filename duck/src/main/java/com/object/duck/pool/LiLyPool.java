@@ -23,14 +23,14 @@ public class LiLyPool {
     }
 
     public static List<Lily> getLilyPool(Position position) {
-        List<Lily> lilies = new ArrayList<Lily>();
+        List<Lily> lilies = new ArrayList<>();
 
         for(Lily lily : lilyList) {
-            if (lily.getPosition().isEquals(position)) {
+            if (lily.getCurrentPosition().isEquals(position)) {
                 lilies.add(lily);
             }
         }
-        return lilyList;
+        return lilies;
     }
 
     public static synchronized boolean release(String name) {
