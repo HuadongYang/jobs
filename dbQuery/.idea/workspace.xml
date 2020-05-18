@@ -6,26 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab66c353-5bf0-4fc8-a602-b457071ecf55" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/jobs/dbQuery/dto/CaseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/case_category.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/level_category.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/query.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/webContent/time_category.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbQuery.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/jobs/dbQuery/api/ContentApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/jobs/dbQuery/api/ContentApi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/webContent/sql.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/webContent/sql.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/jobs/dbQuery/api/ContentApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dbQuery.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery/WEB-INF/classes/com/jobs/dbQuery/api/ContentApi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/dbQuery/webContent/sql.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/dbQuery/webContent/sql.jsp" afterDir="false" />
-    </list>
+    <list default="true" id="ab66c353-5bf0-4fc8-a602-b457071ecf55" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +137,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589418123291</updated>
       <workItem from="1589418126842" duration="11940000" />
+      <workItem from="1589434634533" duration="650000" />
     </task>
     <servers />
   </component>
@@ -167,7 +149,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
