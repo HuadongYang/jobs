@@ -1,10 +1,12 @@
 package com.object.duck.pool;
 
 import com.object.duck.model.Duck;
-import com.object.duck.vo.DuckQueue;
 import com.object.duck.vo.HeadDuckMessage;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -20,6 +22,18 @@ public class DuckPool {
 
 
     private DuckPool() {
+    }
+
+    public static List<Duck> getInitDuckList() {
+        if (initDuckList != null || initDuckList.size() > 0) {
+            return initDuckList;
+        }else {
+            List<Duck> ducks = new ArrayList<>();
+            for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
+                ducks.addAll(entry.getValue());
+            }
+            return ducks;
+        }
     }
 
     public static void registerDuckInPool(Duck newDuck) {

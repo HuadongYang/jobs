@@ -4,6 +4,7 @@ import com.object.duck.model.Pond;
 import com.object.duck.pool.DuckPool;
 import com.object.duck.scene.LifeTimeForDuck;
 import com.object.duck.scene.LifeTimeForLily;
+import com.object.duck.swing.SingleThreadPaint;
 
 import javax.swing.*;
 import java.util.UUID;
@@ -22,7 +23,7 @@ public class Main extends JFrame {
     private static final int WIDTH = 650;//界面的宽度
     private static final int HEIGHT = 600;//界面的高度
 
-    public Main(){
+    public Main() {
         this.setSize(WIDTH, HEIGHT);//设置GUI界面的宽高
         this.setTitle("月夜");//设置标题
         this.setResizable(false);//设置窗口大小不可改变
@@ -30,8 +31,6 @@ public class Main extends JFrame {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//默认关闭操作
         this.setVisible(true);//设置窗口可见
     }
-
-
 
 
     public static void main(String[] args) {
@@ -46,6 +45,15 @@ public class Main extends JFrame {
         }
         main.duckThread(pond);
         main.duckPoolListenerThread();
+        main.swingThread();
+    }
+
+    private void swingThread() {
+        SingleThreadPaint singleThreadPaint = new SingleThreadPaint();
+        Runnable swing = () -> {
+            singleThreadPaint.paint();
+        };
+        new Thread(swing).start();
     }
 
     private void duckThread(Pond pond) {

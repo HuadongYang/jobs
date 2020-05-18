@@ -25,7 +25,7 @@ public class Constants {
     public static final int DUCK_COUNT = 3;
 
     public static Pond pond = new Pond();
-    {
+    static {
         pond.setMinX(0);
         pond.setMaxX(100);
         pond.setMinY(0);
