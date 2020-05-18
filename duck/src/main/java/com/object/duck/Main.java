@@ -4,10 +4,12 @@ import com.object.duck.model.Pond;
 import com.object.duck.pool.DuckPool;
 import com.object.duck.scene.LifeTimeForDuck;
 import com.object.duck.scene.LifeTimeForLily;
-import com.object.duck.swing.MyPanel;
 
 import javax.swing.*;
 import java.util.UUID;
+
+import static com.object.duck.utils.Constants.DUCK_COUNT;
+import static com.object.duck.utils.Constants.pond;
 
 /**
  * todo : step : 小于pond宽的一半
@@ -35,12 +37,6 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         Main main = new Main();
 
-        Pond pond = new Pond();
-        pond.setMinX(0);
-        pond.setMaxX(100);
-        pond.setMinY(0);
-        pond.setMaxY(100);
-
         main.lilyThread(pond);
 
         try {
@@ -53,7 +49,7 @@ public class Main extends JFrame {
     }
 
     private void duckThread(Pond pond) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < DUCK_COUNT; i++) {
             LifeTimeForDuck lifeTimeForDuck = new LifeTimeForDuck();
             this.add(lifeTimeForDuck);
             Runnable duck = () -> {

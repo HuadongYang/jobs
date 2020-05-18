@@ -15,6 +15,8 @@ import java.awt.*;
 import java.util.List;
 import java.util.Random;
 
+import static com.object.duck.utils.Constants.*;
+
 /**
  * @description:
  * @author: Yanghd
@@ -22,10 +24,7 @@ import java.util.Random;
  **/
 public class LifeTimeForDuck extends JPanel {
 
-    private static final Integer weightThresholdOfDeath = 5;
-    private static final Integer weightThresholdOfHead = 80;
 
-    private static final int deathInterval = 10;
 
     private Duck duck;
 
@@ -57,27 +56,27 @@ public class LifeTimeForDuck extends JPanel {
         while (true) {
             //System.out.println("鸭子：" + name + " 位置:" + duck.getCurrentPosition());
 
-            if (duck.getWeight() < weightThresholdOfDeath) {
+            if (duck.getWeight() < WEIGHT_THRESHOLD_OF_DEATH) {
                 System.out.println("鸭子：" + name + " 要死了");
                 DuckPool.releaseDuckFromPool(duck);
                 return;
             }
 
-            if (duck.getWeight() > weightThresholdOfHead && !duck.getType().equals(Duck.DuckType.HEAD)) {
+            if (duck.getWeight() > WEIGHT_THRESHOLD_OF_HEAD && !duck.getType().equals(Duck.DuckType.HEAD)) {
                 System.out.println("鸭子：" + name + " 成为头鸭了");
                 duck.setType(Duck.DuckType.HEAD);
             }
 
-            if ((day - duck.getLatestEatDay()) > deathInterval) {
+            if ((day - duck.getLatestEatDay()) > DEATH_INTERVAL) {
                 System.out.println("鸭子：" + name + " 好几天没吃东西，要瘦了");
                 duck.loseWeight();
             }
 
             eatLily(duck, day);
 
-            duckMove.move(pond, 5, getRandomAngle());
+            duckMove.move(pond, DUCK_STEP, getRandomAngle());
             try {
-                Thread.sleep(100);
+                Thread.sleep(DUCK_THREAD_SLEEP_MILLS);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

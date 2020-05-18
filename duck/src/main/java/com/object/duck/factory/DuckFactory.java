@@ -3,6 +3,9 @@ package com.object.duck.factory;
 import com.object.duck.model.Duck;
 import com.object.duck.vo.DuckQueue;
 
+import static com.object.duck.utils.Constants.DUCK_INIT_COLOR;
+import static com.object.duck.utils.Constants.DUCK_INIT_WEIGHT;
+
 /**
  * @description:
  * @author: Yanghd
@@ -14,8 +17,8 @@ public class DuckFactory {
         Duck duck = new Duck();
         duck.setName(name);
         duck.setType(Duck.DuckType.NORMAL);
-        duck.setColor("#FFFF00");
-        duck.setWeight(50);
+        duck.setColor(DUCK_INIT_COLOR);
+        duck.setWeight(DUCK_INIT_WEIGHT);
         duck.setLatestEatDay(0);
         duck.setDuckQueue(new DuckQueue());
         return duck;

@@ -7,18 +7,19 @@ import com.object.duck.model.Lily;
 import com.object.duck.model.Pond;
 import com.object.duck.pool.LiLyPool;
 
+import static com.object.duck.utils.Constants.LILY_THREAD_SLEEP_MILLS;
+
 public class LifeTimeForLily {
 
     public void lifeTime(String name, Pond pond) {
         Lily lily = LiLyFactory.born(name);
 
-        //System.out.println("睡莲："+name+" 出生了");
         LilyAppear lilyAppear = new LilyAppearImpl(lily);
         lilyAppear.initPosition(pond);
         LiLyPool.registerLilyPool(lily);
 
         try {
-            Thread.sleep(1);
+            Thread.sleep(LILY_THREAD_SLEEP_MILLS);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
