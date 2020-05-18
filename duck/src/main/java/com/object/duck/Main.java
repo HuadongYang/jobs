@@ -6,7 +6,6 @@ import com.object.duck.scene.LifeTimeForDuck;
 import com.object.duck.scene.LifeTimeForLily;
 import com.object.duck.swing.SingleThreadPaint;
 
-import javax.swing.*;
 import java.util.UUID;
 
 import static com.object.duck.utils.Constants.DUCK_COUNT;
@@ -19,18 +18,10 @@ import static com.object.duck.utils.Constants.pond;
  * @author: Yanghd
  * @create: 2020-05-16 00:29
  **/
-public class Main extends JFrame {
+public class Main {
     private static final int WIDTH = 650;//界面的宽度
     private static final int HEIGHT = 600;//界面的高度
 
-    public Main() {
-        this.setSize(WIDTH, HEIGHT);//设置GUI界面的宽高
-        this.setTitle("月夜");//设置标题
-        this.setResizable(false);//设置窗口大小不可改变
-        this.setLocationRelativeTo(null);//设置窗口位置居中
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);//默认关闭操作
-        this.setVisible(true);//设置窗口可见
-    }
 
 
     public static void main(String[] args) {
@@ -39,7 +30,7 @@ public class Main extends JFrame {
         main.lilyThread(pond);
 
         try {
-            Thread.sleep(1000);
+            Thread.sleep(60);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -59,7 +50,6 @@ public class Main extends JFrame {
     private void duckThread(Pond pond) {
         for (int i = 0; i < DUCK_COUNT; i++) {
             LifeTimeForDuck lifeTimeForDuck = new LifeTimeForDuck();
-            this.add(lifeTimeForDuck);
             Runnable duck = () -> {
                 lifeTimeForDuck.lifeTime(Thread.currentThread().getName(), pond);
             };

@@ -6,6 +6,8 @@ import com.object.duck.vo.Position;
 
 import java.util.Objects;
 
+import static com.object.duck.utils.Constants.DUCK_LOSE_WEIGHT;
+
 /**
  * @description:
  * @author: Yanghd
@@ -57,7 +59,7 @@ public class Duck extends BaseModel{
 
 
     public void loseWeight() {
-        this.weight -= 1;
+        this.weight -= DUCK_LOSE_WEIGHT;
 
     }
 

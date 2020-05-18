@@ -25,7 +25,6 @@ public class Test extends JFrame {
 
     private void ShowMoon(){
         LifeTimeForDuck lifeTimeForDuck = new LifeTimeForDuck();
-        this.add(lifeTimeForDuck);
         Pond pond = new Pond();
         pond.setMinX(0);
         pond.setMaxX(100);

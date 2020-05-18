@@ -25,6 +25,7 @@ public class SingleThreadPaint {
         jFrame.setVisible(true);//设置窗口可见
 
         JPanelTest jPanelTest = new JPanelTest();
+        jFrame.add(jPanelTest);
         jPanelTest.showW();
 
     }

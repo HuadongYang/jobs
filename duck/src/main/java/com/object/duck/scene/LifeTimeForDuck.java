@@ -22,22 +22,8 @@ import static com.object.duck.utils.Constants.*;
  * @author: Yanghd
  * @create: 2020-05-16 13:25
  **/
-public class LifeTimeForDuck extends JPanel {
-
-
-
+public class LifeTimeForDuck {
     private Duck duck;
-
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        Position currentPosition = duck.getCurrentPosition();
-        Integer x = currentPosition.getX();
-        Integer y = currentPosition.getY();
-        g.setColor(Color.blue);//重新设定画笔颜色
-        g.fillOval(x, y, 50, 50);//画一个实心圆
-        //g.fillRect(x+20, y+100,10,30);
-    }
 
     public void lifeTime(String name, Pond pond) {
 
@@ -62,7 +48,12 @@ public class LifeTimeForDuck extends JPanel {
                 return;
             }
 
-            if (duck.getWeight() > WEIGHT_THRESHOLD_OF_HEAD && !duck.getType().equals(Duck.DuckType.HEAD)) {
+//            if (duck.getWeight() > WEIGHT_THRESHOLD_OF_HEAD && !duck.getType().equals(Duck.DuckType.HEAD)) {
+//                System.out.println("鸭子：" + name + " 成为头鸭了");
+//                duck.setType(Duck.DuckType.HEAD);
+//            }
+
+            if (duck.getName().equals("Thread-6")){
                 System.out.println("鸭子：" + name + " 成为头鸭了");
                 duck.setType(Duck.DuckType.HEAD);
             }
@@ -82,7 +73,6 @@ public class LifeTimeForDuck extends JPanel {
             }
             day++;
 
-            repaint();
         }
 
     }

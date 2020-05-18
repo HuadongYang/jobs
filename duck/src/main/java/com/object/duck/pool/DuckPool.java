@@ -25,15 +25,14 @@ public class DuckPool {
     }
 
     public static List<Duck> getInitDuckList() {
+        List<Duck> ducks = new ArrayList<>();
         if (initDuckList != null || initDuckList.size() > 0) {
-            return initDuckList;
-        }else {
-            List<Duck> ducks = new ArrayList<>();
-            for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
-                ducks.addAll(entry.getValue());
-            }
-            return ducks;
+            ducks.addAll(initDuckList);
         }
+        for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
+            ducks.addAll(entry.getValue());
+        }
+        return ducks;
     }
 
     public static void registerDuckInPool(Duck newDuck) {
@@ -73,19 +72,19 @@ public class DuckPool {
         if (initDuckList != null && initDuckList.size() > 0) {
             for (Duck duck : initDuckList) {
                 if (duck.getType().equals(Duck.DuckType.HEAD) && !duckQueueMap.keySet().contains(duck)) {
-                    System.out.println("duckPool 有头鸭："+duck.getName()+"， 要排队了");
+                    System.out.println("duckPool 有头鸭：" + duck.getName() + "， 要排队了");
                     firstInline(duck);
                     return;
                 }
 
             }
-        }else {
+        } else {
             for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
                 List<Duck> ducks = entry.getValue();
                 for (Duck duck : ducks) {
                     if (duck.getType().equals(Duck.DuckType.HEAD) && !duckQueueMap.keySet().contains(duck)) {
                         addHeadLine(duck);
-                        System.out.println("duckPool 有新的鸭："+duck.getName()+"， 要排队了");
+                        System.out.println("duckPool 有新的鸭：" + duck.getName() + "， 要排队了");
                         System.out.println("duckPool duckQueueMap : " + duckQueueMap.size());
                         return;
                     }
@@ -118,7 +117,7 @@ public class DuckPool {
         }
 
 
-        List<Duck> newQueue = newQueue(newHead,newDuckList);
+        List<Duck> newQueue = newQueue(newHead, newDuckList);
         duckQueueMap.put(newHead, newQueue);
     }
 
