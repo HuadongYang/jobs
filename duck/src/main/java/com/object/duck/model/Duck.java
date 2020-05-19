@@ -4,6 +4,7 @@ import com.object.duck.vo.DuckQueue;
 import com.object.duck.vo.HeadDuckMessage;
 import com.object.duck.vo.Position;
 
+import java.awt.*;
 import java.util.Objects;
 
 import static com.object.duck.utils.Constants.DUCK_LOSE_WEIGHT;
@@ -17,7 +18,7 @@ public class Duck extends BaseModel{
 
     private String name;
 
-    private String color;
+    private Color color;
 
     private Integer weight;
 
@@ -28,6 +29,7 @@ public class Duck extends BaseModel{
     private Position prePosition;
 
     private DuckQueue duckQueue;
+
 
     public void receiveHeadMessage(HeadDuckMessage headDuckMessage) {
 
@@ -71,7 +73,7 @@ public class Duck extends BaseModel{
 
     }
 
-    public static enum DuckType {
+    public enum DuckType {
         HEAD,
         NORMAL;
     }
@@ -85,11 +87,11 @@ public class Duck extends BaseModel{
         this.name = name;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 

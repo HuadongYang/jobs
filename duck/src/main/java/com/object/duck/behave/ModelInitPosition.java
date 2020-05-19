@@ -19,6 +19,7 @@ public abstract class ModelInitPosition {
         Integer nextX = rand.nextInt(pond.getMaxX() - pond.getMinX()) + pond.getMinX();
         Integer nextY = rand.nextInt(pond.getMaxY() - pond.getMinY()) + pond.getMinY();
 
-        model.setCurrentPosition(new Position(nextX, nextY));
+        Integer angle = rand.nextInt(360);
+        model.setCurrentPosition(new Position(nextX, nextY,angle));
     }
 }

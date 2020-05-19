@@ -22,6 +22,10 @@ public class LiLyPool {
         lilyList.add(lily);
     }
 
+    public static List<Lily> getLilyList() {
+        return lilyList;
+    }
+
     public static List<Lily> getLilyPool(Position position) {
         List<Lily> lilies = new ArrayList<>();
 

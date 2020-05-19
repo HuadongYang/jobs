@@ -39,23 +39,30 @@ public class DuckPool {
         if (initDuckList != null || initDuckList.size() > 0) {
             initDuckList.add(newDuck);
         } else {
-            Integer minSize = Integer.MAX_VALUE;
-            Duck minSizeHeadDuck = null;
-            for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
-                if (entry.getValue().size() < minSize) {
-                    minSize = entry.getValue().size();
-                    minSizeHeadDuck = entry.getKey();
-                }
-            }
-            if (minSizeHeadDuck != null) {
-                duckQueueMap.get(minSizeHeadDuck).add(newDuck);
-            }
+            registerDuckInMap(newDuck);
         }
         System.out.println("duckPool initDuckList size: " + initDuckList.size());
     }
 
+    private static void registerDuckInMap(Duck newDuck) {
+        Integer minSize = Integer.MAX_VALUE;
+        Duck minSizeHeadDuck = null;
+        for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
+            if (entry.getValue().size() < minSize) {
+                minSize = entry.getValue().size();
+                minSizeHeadDuck = entry.getKey();
+            }
+        }
+        if (minSizeHeadDuck != null) {
+            List<Duck> ducks = duckQueueMap.get(minSizeHeadDuck);
+            HeadDuckMessage headDuckMessage = new HeadDuckMessage(minSizeHeadDuck, ducks.get(ducks.size()-1));
+            newDuck.receiveHeadMessage(headDuckMessage);
+            ducks.add(newDuck);
+        }
+    }
+
     public static void releaseDuckFromPool(Duck deathDuck) {
-        if (initDuckList != null || initDuckList.size() > 0) {
+        if (initDuckList != null && initDuckList.size() > 0) {
             initDuckList.remove(deathDuck);
         } else {
             for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
@@ -69,7 +76,7 @@ public class DuckPool {
     }
 
     public static void run() {
-        if (initDuckList != null && initDuckList.size() > 0) {
+        if (initDuckList != null && initDuckList.size() > 0 && duckQueueMap.size() == 0) {
             for (Duck duck : initDuckList) {
                 if (duck.getType().equals(Duck.DuckType.HEAD) && !duckQueueMap.keySet().contains(duck)) {
                     System.out.println("duckPool 有头鸭：" + duck.getName() + "， 要排队了");
@@ -78,7 +85,12 @@ public class DuckPool {
                 }
 
             }
-        } else {
+        } else if(initDuckList != null && initDuckList.size() > 0 && duckQueueMap.size() > 0) {
+            for (Duck duck : initDuckList) {
+                registerDuckInMap(duck);
+            }
+            initDuckList.clear();
+        }else{
             for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
                 List<Duck> ducks = entry.getValue();
                 for (Duck duck : ducks) {

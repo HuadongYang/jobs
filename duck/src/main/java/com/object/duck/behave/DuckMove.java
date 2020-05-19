@@ -14,7 +14,7 @@ public abstract class DuckMove extends ModelInitPosition {
         super(baseModel);
     }
 
-    public abstract void move(Pond pond, Integer step, double angle);
+    public abstract void move(Pond pond, Integer step);
 
 
 }

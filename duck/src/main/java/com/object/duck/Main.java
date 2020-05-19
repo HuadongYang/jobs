@@ -19,18 +19,13 @@ import static com.object.duck.utils.Constants.pond;
  * @create: 2020-05-16 00:29
  **/
 public class Main {
-    private static final int WIDTH = 650;//界面的宽度
-    private static final int HEIGHT = 600;//界面的高度
-
-
-
     public static void main(String[] args) {
         Main main = new Main();
 
         main.lilyThread(pond);
 
         try {
-            Thread.sleep(60);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

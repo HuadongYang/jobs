@@ -10,6 +10,9 @@ public class Position {
 
     private Integer y;
 
+    private Integer angle;
+
+
     public Position() {
     }
 
@@ -17,6 +20,12 @@ public class Position {
         this.x = x;
         this.y = y;
     }
+    public Position(int x, int y, int angle) {
+        this.x = x;
+        this.y = y;
+        this.angle = angle;
+    }
+
 
     public boolean isEquals(Position other) {
         if (this.x != null
@@ -28,6 +37,14 @@ public class Position {
             return true;
         }
         return false;
+    }
+
+    public Integer getAngle() {
+        return angle;
+    }
+
+    public void setAngle(Integer angle) {
+        this.angle = angle;
     }
 
     public Integer getX() {

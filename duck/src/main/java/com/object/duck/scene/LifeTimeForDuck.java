@@ -23,12 +23,10 @@ import static com.object.duck.utils.Constants.*;
  * @create: 2020-05-16 13:25
  **/
 public class LifeTimeForDuck {
-    private Duck duck;
 
     public void lifeTime(String name, Pond pond) {
 
         Duck duck = DuckFactory.born(name);
-        this.duck = duck;
         System.out.println("小鸭子出生，name:" + name);
         DuckPool.registerDuckInPool(duck);
         System.out.println("鸭子：" + name + "注册");
@@ -40,7 +38,6 @@ public class LifeTimeForDuck {
         int day = 0;
 
         while (true) {
-            //System.out.println("鸭子：" + name + " 位置:" + duck.getCurrentPosition());
 
             if (duck.getWeight() < WEIGHT_THRESHOLD_OF_DEATH) {
                 System.out.println("鸭子：" + name + " 要死了");
@@ -48,24 +45,29 @@ public class LifeTimeForDuck {
                 return;
             }
 
-//            if (duck.getWeight() > WEIGHT_THRESHOLD_OF_HEAD && !duck.getType().equals(Duck.DuckType.HEAD)) {
-//                System.out.println("鸭子：" + name + " 成为头鸭了");
-//                duck.setType(Duck.DuckType.HEAD);
-//            }
-
-            if (duck.getName().equals("Thread-6")){
+            if (duck.getWeight() > WEIGHT_THRESHOLD_OF_HEAD && !duck.getType().equals(Duck.DuckType.HEAD)) {
                 System.out.println("鸭子：" + name + " 成为头鸭了");
-                duck.setType(Duck.DuckType.HEAD);
+                toBeHeadDuck(duck, duckMove);
             }
+
+           /* if (duck.getName().equals("Thread-6") && !duck.getType().equals(Duck.DuckType.HEAD)){
+                System.out.println("鸭子：" + name + " 成为头鸭了");
+                toBeHeadDuck(duck, duckMove);
+            }*/
 
             if ((day - duck.getLatestEatDay()) > DEATH_INTERVAL) {
                 System.out.println("鸭子：" + name + " 好几天没吃东西，要瘦了");
                 duck.loseWeight();
             }
 
+            if (duck.getWeight() < DUCK_THIN_WEIGHT && !duck.getColor().equals(DUCK_THIN_COLOR)) {
+                System.out.println("鸭子：" + name + " 已经很瘦了");
+                duck.setColor(DUCK_THIN_COLOR);
+            }
+
             eatLily(duck, day);
 
-            duckMove.move(pond, DUCK_STEP, getRandomAngle());
+            duckMove.move(pond, DUCK_STEP);
             try {
                 Thread.sleep(DUCK_THREAD_SLEEP_MILLS);
             } catch (InterruptedException e) {
@@ -75,6 +77,12 @@ public class LifeTimeForDuck {
 
         }
 
+    }
+
+    private void toBeHeadDuck(Duck duck, DuckMove duckMove){
+        duck.setType(Duck.DuckType.HEAD);
+        duck.setColor(DUCK_HEAD_COLOR);
+        duckMove.initPosition(pond);
     }
 
     private void eatLily(Duck duck, int day) {
@@ -87,11 +95,6 @@ public class LifeTimeForDuck {
                 duck.setLatestEatDay(day);
             }
         }
-    }
-
-    private Integer getRandomAngle() {
-        Random rand = new Random();
-        return rand.nextInt(360);
     }
 
 

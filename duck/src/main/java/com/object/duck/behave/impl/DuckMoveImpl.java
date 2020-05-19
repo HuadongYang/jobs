@@ -5,7 +5,8 @@ import com.object.duck.model.Duck;
 import com.object.duck.model.Pond;
 import com.object.duck.vo.Position;
 
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @description:
@@ -15,6 +16,13 @@ import java.util.Random;
 public class DuckMoveImpl extends DuckMove {
 
     private Duck duck;
+    private static List<Integer> spinAngles = new ArrayList<>();
+    static {
+        spinAngles.add(0);
+        spinAngles.add(90);
+        spinAngles.add(180);
+        spinAngles.add(270);
+    }
 
     public DuckMoveImpl(Duck duck) {
         super(duck);
@@ -22,19 +30,9 @@ public class DuckMoveImpl extends DuckMove {
     }
 
     @Override
-    public void initPosition(Pond pond) {
-        Random rand = new Random();
-        Integer nextX = rand.nextInt(pond.getMaxX() - pond.getMinX()) + pond.getMinX();
-        Integer nextY = rand.nextInt(pond.getMaxY() - pond.getMinY()) + pond.getMinY();
-
-        duck.setCurrentPosition(new Position(nextX, nextY));
-        //duck.setPrePosition(new Position(nextX, nextY));
-    }
-
-    @Override
-    public void move(Pond pond, Integer step, double angle) {
+    public void move(Pond pond, Integer step) {
         if (duck.getDuckQueue() == null || duck.getDuckQueue().getPreDuck() == null || duck.getType().equals(Duck.DuckType.HEAD)) {
-            moveToNextPosition(pond, step, angle);
+            moveToNextPosition(pond, step);
         }else {
             followPreDuck(duck.getDuckQueue().getPreDuck());
         }
@@ -49,31 +47,23 @@ public class DuckMoveImpl extends DuckMove {
         duck.setCurrentPosition(preDuck.getPrePosition());
     }
 
-    private void moveToNextPosition(Pond pond, Integer step, double angle) {
+    private void moveToNextPosition(Pond pond, Integer step) {
         Position currentPosition = duck.getCurrentPosition();
-
-        Position newPosition = calNewPosition(currentPosition, step, angle);
-
-        boolean exceedPond = isExceedPond(newPosition, pond);
-
-        if (exceedPond) {
-            angle += 180;
-            if (angle > 360) {
-                angle -= 360;
+        for (Integer spinAngle : spinAngles) {
+            int ajustAngle = currentPosition.getAngle() + spinAngle;
+            if (ajustAngle > 360) {
+                ajustAngle -= 360;
             }
-            newPosition = calNewPosition(currentPosition, step, angle);
-            exceedPond = isExceedPond(newPosition, pond);
-            if (!exceedPond) {
-                duck.setPrePosition(duck.getCurrentPosition());
-                duck.setCurrentPosition(newPosition);
+            currentPosition.setAngle(ajustAngle);
+            
+            Position newPosition = calNewPosition(currentPosition, step);
+            boolean exceedPond = isExceedPond(newPosition, pond);
+            if (exceedPond) {
+                continue;
             }
-
-
-        }else {
             duck.setPrePosition(duck.getCurrentPosition());
             duck.setCurrentPosition(newPosition);
         }
-
     }
 
     private boolean isExceedPond(Position position, Pond pond) {
@@ -88,11 +78,12 @@ public class DuckMoveImpl extends DuckMove {
         return false;
     }
 
-    public Position calNewPosition(Position currentPosition, Integer step, double angle) {
+    public Position calNewPosition(Position currentPosition, Integer step) {
+        Integer angle = currentPosition.getAngle();
         Integer addX = Double.valueOf(step*Math.cos(angle)).intValue();
         Integer addY = Double.valueOf(step*Math.sin(angle)).intValue();
 
-        Position newPosition = new Position(currentPosition.getX(), currentPosition.getY());
+        Position newPosition = new Position(currentPosition.getX(), currentPosition.getY(), currentPosition.getAngle());
         if (angle > 90 && angle < 270) {
             Integer newX = currentPosition.getX() - addX;
             newPosition.setX(newX);
