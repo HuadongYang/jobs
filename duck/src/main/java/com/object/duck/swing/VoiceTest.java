@@ -13,8 +13,6 @@ public class VoiceTest {
             if (true) {
                 Frame f = new Frame();
                 Toolkit kit = f.getToolkit();
-
-
                 kit.beep();
             }
             System.err.println(new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date()) + "------------警报...warning....");

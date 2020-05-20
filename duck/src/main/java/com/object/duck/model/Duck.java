@@ -7,7 +7,7 @@ import com.object.duck.vo.Position;
 import java.awt.*;
 import java.util.Objects;
 
-import static com.object.duck.utils.Constants.DUCK_LOSE_WEIGHT;
+import static com.object.duck.utils.Constants.*;
 
 /**
  * @description:
@@ -43,7 +43,10 @@ public class Duck extends BaseModel{
     }
 
     public void grow() {
-        this.weight += 5;
+        if (this.weight >= DUCK_LIMIT_WEIGHT) {
+            return;
+        }
+        this.weight += DUCK_GROW_WEIGHT;
     }
 
     public DuckQueue getDuckQueue() {

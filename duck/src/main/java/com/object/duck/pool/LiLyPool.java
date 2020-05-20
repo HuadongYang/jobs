@@ -1,5 +1,6 @@
 package com.object.duck.pool;
 
+import com.object.duck.model.Duck;
 import com.object.duck.model.Lily;
 import com.object.duck.vo.Position;
 
@@ -26,38 +27,28 @@ public class LiLyPool {
         return lilyList;
     }
 
-    public static List<Lily> getLilyPool(Position position) {
+    public static List<Lily> getLilyPool(Duck duck) {
+        Position position = duck.getCurrentPosition();
+        Integer weight = duck.getWeight();
+
         List<Lily> lilies = new ArrayList<>();
 
         for(Lily lily : lilyList) {
-            if (lily.getCurrentPosition().isEquals(position)) {
+            Position lilyPosition = lily.getCurrentPosition();
+            int differenceX = lilyPosition.getX() - position.getX();
+            int differenceY = lilyPosition.getY() - position.getY();
+            if ((differenceX*differenceX + differenceY*differenceY) < weight) {
                 lilies.add(lily);
             }
         }
         return lilies;
     }
 
-    public static synchronized boolean release(String name) {
-        Integer index = getIndexFromListByName(name);
+    public static synchronized boolean release(Lily lily) {
 
-        if (index == -1) {
-            return false;
-        }
-
-        lilyList.remove(index);
-        return true;
+        return lilyList.remove(lily);
     }
 
-    private static Integer getIndexFromListByName(String name) {
-        for (int i = 0; i < lilyList.size(); i++) {
-            Lily lily = lilyList.get(i);
-            if (lily.getName().equals(name)) {
-                return i;
-            }
-        }
-
-        return -1;
-    }
 
 
 }

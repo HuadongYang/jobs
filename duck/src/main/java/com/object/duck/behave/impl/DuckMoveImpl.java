@@ -20,8 +20,8 @@ public class DuckMoveImpl extends DuckMove {
     static {
         spinAngles.add(0);
         spinAngles.add(90);
-        spinAngles.add(180);
-        spinAngles.add(270);
+        spinAngles.add(90);
+        spinAngles.add(90);
     }
 
     public DuckMoveImpl(Duck duck) {
@@ -63,15 +63,16 @@ public class DuckMoveImpl extends DuckMove {
             }
             duck.setPrePosition(duck.getCurrentPosition());
             duck.setCurrentPosition(newPosition);
+            break;
         }
     }
 
     private boolean isExceedPond(Position position, Pond pond) {
-        if (position.getX() <= pond.getMinX() || position.getX() >= pond.getMaxX()) {
+        if (position.getX() < pond.getMinX() || position.getX() >= pond.getMaxX()) {
             return true;
         }
 
-        if (position.getY() <= pond.getMinY() || position.getY() >= pond.getMaxY()) {
+        if (position.getY() < pond.getMinY() || position.getY() >= pond.getMaxY()) {
             return true;
         }
 
@@ -81,7 +82,13 @@ public class DuckMoveImpl extends DuckMove {
     public Position calNewPosition(Position currentPosition, Integer step) {
         Integer angle = currentPosition.getAngle();
         Integer addX = Double.valueOf(step*Math.cos(angle)).intValue();
+        if (addX < 0 ) {
+            addX = 0 - addX;
+        }
         Integer addY = Double.valueOf(step*Math.sin(angle)).intValue();
+        if (addY < 0 ){
+            addY = 0-addY;
+        }
 
         Position newPosition = new Position(currentPosition.getX(), currentPosition.getY(), currentPosition.getAngle());
         if (angle > 90 && angle < 270) {

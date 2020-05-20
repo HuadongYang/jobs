@@ -12,7 +12,8 @@ import static com.object.duck.utils.Constants.DUCK_COUNT;
 import static com.object.duck.utils.Constants.pond;
 
 /**
- * todo : step : 小于pond宽的一半
+ * todo: 检测头鸭的体重
+ * todo: line
  *
  * @description:
  * @author: Yanghd
@@ -25,7 +26,7 @@ public class Main {
         main.lilyThread(pond);
 
         try {
-            Thread.sleep(2000);
+            Thread.sleep(2);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -53,9 +54,10 @@ public class Main {
     }
 
     private void duckPoolListenerThread() {
+        DuckPool duckPool = DuckPool.getInstance();
         Runnable duckPoolThread = () -> {
             while (true) {
-                DuckPool.run();
+                duckPool.run();
             }
         };
         new Thread(duckPoolThread).start();
@@ -67,7 +69,6 @@ public class Main {
                 LifeTimeForLily lifeTimeForLily = new LifeTimeForLily();
                 String name = String.valueOf(UUID.randomUUID().getLeastSignificantBits());
                 lifeTimeForLily.lifeTime(name, pond);
-
             }
         };
         new Thread(lilyThread).start();

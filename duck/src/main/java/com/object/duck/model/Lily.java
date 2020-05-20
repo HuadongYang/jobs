@@ -1,6 +1,7 @@
 package com.object.duck.model;
 
-import com.object.duck.vo.Position;
+
+import java.util.Objects;
 
 /**
  * @description:
@@ -16,6 +17,23 @@ public class Lily extends BaseModel {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Lily lily = (Lily) o;
+        return this.name.equals(lily.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name);
     }
 
 }
