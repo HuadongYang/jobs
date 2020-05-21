@@ -1,9 +1,5 @@
 package com.object.duck.model;
-/**
- * @description:
- * @author: Yanghd
- * @create: 2020-05-15 23:52
- **/
+
 public class Pond {
 
     private Integer minX;

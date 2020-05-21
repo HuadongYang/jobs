@@ -3,11 +3,6 @@ package com.object.duck.model;
 
 import java.util.Objects;
 
-/**
- * @description:
- * @author: Yanghd
- * @create: 2020-05-15 23:54
- **/
 public class Lily extends BaseModel {
     private String name;
 

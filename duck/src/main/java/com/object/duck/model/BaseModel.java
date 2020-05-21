@@ -12,4 +12,5 @@ public class BaseModel {
     public void setCurrentPosition(Position currentPosition) {
         this.currentPosition = currentPosition;
     }
+
 }

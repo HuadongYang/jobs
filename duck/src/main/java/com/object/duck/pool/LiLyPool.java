@@ -8,11 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- * @description:
- * @author: Yanghd
- * @create: 2020-05-17 22:25
- **/
 public class LiLyPool {
 
     private static volatile List<Lily> lilyList = new CopyOnWriteArrayList<Lily>();

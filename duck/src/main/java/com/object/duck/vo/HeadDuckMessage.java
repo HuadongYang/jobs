@@ -13,10 +13,6 @@ public class HeadDuckMessage {
         this.preDuck = preDuck;
     }
 
-    /* private Integer index;
-
-        private Integer queueSize;
-    */
     public Duck getHead() {
         return head;
     }

@@ -9,11 +9,6 @@ import java.util.Objects;
 
 import static com.object.duck.utils.Constants.*;
 
-/**
- * @description:
- * @author: Yanghd
- * @create: 2020-05-15 23:23
- **/
 public class Duck extends BaseModel{
 
     private String name;
@@ -65,14 +60,6 @@ public class Duck extends BaseModel{
 
     public void loseWeight() {
         this.weight -= DUCK_LOSE_WEIGHT;
-
-    }
-
-    public void die() {
-
-    }
-
-    public void whistles() {
 
     }
 

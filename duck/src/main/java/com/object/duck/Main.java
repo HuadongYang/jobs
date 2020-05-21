@@ -1,36 +1,23 @@
 package com.object.duck;
 
-import com.object.duck.model.Pond;
+import com.object.duck.listener.DuckPoolListener;
 import com.object.duck.pool.DuckPool;
-import com.object.duck.scene.LifeTimeForDuck;
-import com.object.duck.scene.LifeTimeForLily;
+import com.object.duck.scene.LifeTime;
+import com.object.duck.scene.impl.LifeTimeForDuck;
+import com.object.duck.scene.impl.LifeTimeForLily;
 import com.object.duck.swing.SingleThreadPaint;
 
 import java.util.UUID;
 
 import static com.object.duck.utils.Constants.DUCK_COUNT;
-import static com.object.duck.utils.Constants.pond;
 
-/**
- * todo: 检测头鸭的体重
- * todo: line
- *
- * @description:
- * @author: Yanghd
- * @create: 2020-05-16 00:29
- **/
+
 public class Main {
     public static void main(String[] args) {
         Main main = new Main();
 
-        main.lilyThread(pond);
-
-        try {
-            Thread.sleep(2);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        main.duckThread(pond);
+        main.lilyThread();
+        main.duckThread();
         main.duckPoolListenerThread();
         main.swingThread();
     }
@@ -43,11 +30,11 @@ public class Main {
         new Thread(swing).start();
     }
 
-    private void duckThread(Pond pond) {
+    private void duckThread() {
         for (int i = 0; i < DUCK_COUNT; i++) {
-            LifeTimeForDuck lifeTimeForDuck = new LifeTimeForDuck();
+            LifeTime lifeTimeForDuck = new LifeTimeForDuck();
             Runnable duck = () -> {
-                lifeTimeForDuck.lifeTime(Thread.currentThread().getName(), pond);
+                lifeTimeForDuck.lifeTime(Thread.currentThread().getName());
             };
             new Thread(duck).start();
         }
@@ -56,19 +43,17 @@ public class Main {
     private void duckPoolListenerThread() {
         DuckPool duckPool = DuckPool.getInstance();
         Runnable duckPoolThread = () -> {
-            while (true) {
-                duckPool.run();
-            }
+            new DuckPoolListener(duckPool).listen();
         };
         new Thread(duckPoolThread).start();
     }
 
-    private void lilyThread(Pond pond) {
+    private void lilyThread() {
         Runnable lilyThread = () -> {
             while (true) {
-                LifeTimeForLily lifeTimeForLily = new LifeTimeForLily();
+                LifeTime lifeTimeForLily = new LifeTimeForLily();
                 String name = String.valueOf(UUID.randomUUID().getLeastSignificantBits());
-                lifeTimeForLily.lifeTime(name, pond);
+                lifeTimeForLily.lifeTime(name);
             }
         };
         new Thread(lilyThread).start();

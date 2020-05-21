@@ -10,15 +10,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.stream.Collectors;
 
-import static com.object.duck.utils.Constants.DUCK_THIN_WEIGHT;
-
-/**
- * @description:
- * @author: Yanghd
- * @create: 2020-05-17 22:22
- **/
 public class DuckPool {
 
     private static DuckPool instance = null;
@@ -36,7 +28,6 @@ public class DuckPool {
     }
 
     public static DuckPool getInstance() {
-        // 先判断实例是否存在，若不存在再对类对象进行加锁处理
         if (instance == null) {
             synchronized (DuckPool.class) {
                 if (instance == null) {
@@ -47,7 +38,15 @@ public class DuckPool {
         return instance;
     }
 
-    public List<Duck> getFreeDuckList() {
+    public List<Duck> getFreeDuckList(){
+        return freeDuckList;
+    }
+
+    public Map<Duck, List<Duck>> getDuckQueueMap() {
+        return duckQueueMap;
+    }
+
+    public List<Duck> getAllDuckList() {
         List<Duck> ducks = new ArrayList<>();
         if (freeDuckList != null || freeDuckList.size() > 0) {
             ducks.addAll(freeDuckList);
@@ -159,31 +158,8 @@ public class DuckPool {
         duckQueueMap.put(head, line);
     }
 
-    public void run() {
-        for (Duck duck : freeDuckList) {
-            if (duck.getType().equals(Duck.DuckType.HEAD) && !duckQueueMap.keySet().contains(duck)) {
-                System.out.println("duckPool 有头鸭：" + duck.getName() + "， 要排队了");
-                List<Duck> duckExceptThinDucks = freeDuckList.stream().filter(x -> x.getWeight() > DUCK_THIN_WEIGHT).collect(Collectors.toList());
-                firstInline(duck, duckExceptThinDucks);
-                return;
-            }
 
-        }
-        for (Map.Entry<Duck, List<Duck>> entry : duckQueueMap.entrySet()) {
-            List<Duck> ducks = entry.getValue();
-            for (Duck duck : ducks) {
-                if (duck.getType().equals(Duck.DuckType.HEAD) && !duckQueueMap.keySet().contains(duck)) {
-                    addHeadLine(duck);
-                    System.out.println("duckPool 有新的鸭：" + duck.getName() + "， 要排队了");
-                    System.out.println("duckPool duckQueueMap : " + duckQueueMap.size());
-                    return;
-                }
-            }
-
-        }
-    }
-
-    private void addHeadLine(Duck newHead) {
+    public void addHeadLine(Duck newHead) {
         Integer total = 0;
         Set<Map.Entry<Duck, List<Duck>>> entries = duckQueueMap.entrySet();
         for (Map.Entry<Duck, List<Duck>> entry : entries) {
@@ -205,12 +181,11 @@ public class DuckPool {
             values.removeAll(newDuckList);
         }
 
-
         List<Duck> newQueue = line(newHead, newDuckList);
         duckQueueMap.put(newHead, newQueue);
     }
 
-    private void firstInline(Duck head, List<Duck> duckExceptThinDucks) {
+    public void firstInline(Duck head, List<Duck> duckExceptThinDucks) {
         List<Duck> newQueue = line(head, duckExceptThinDucks);
         duckQueueMap.put(head, newQueue);
         freeDuckList.removeAll(duckExceptThinDucks);

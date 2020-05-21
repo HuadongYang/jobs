@@ -7,10 +7,6 @@ public class DuckQueue {
 
     private Duck preDuck;
 
-    //private Integer index;
-
-
-
     public Duck getHead() {
         return Head;
     }

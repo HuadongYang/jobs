@@ -2,17 +2,15 @@ package com.object.duck.behave.impl;
 
 import com.object.duck.behave.DuckMove;
 import com.object.duck.model.Duck;
-import com.object.duck.model.Pond;
+import com.object.duck.model.Rock;
 import com.object.duck.vo.Position;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @description:
- * @author: Yanghd
- * @create: 2020-05-16 13:39
- **/
+import static com.object.duck.utils.Constants.*;
+
+
 public class DuckMoveImpl extends DuckMove {
 
     private Duck duck;
@@ -30,9 +28,9 @@ public class DuckMoveImpl extends DuckMove {
     }
 
     @Override
-    public void move(Pond pond, Integer step) {
+    public void move(Integer step) {
         if (duck.getDuckQueue() == null || duck.getDuckQueue().getPreDuck() == null || duck.getType().equals(Duck.DuckType.HEAD)) {
-            moveToNextPosition(pond, step);
+            moveToNextPosition(step);
         }else {
             followPreDuck(duck.getDuckQueue().getPreDuck());
         }
@@ -47,7 +45,7 @@ public class DuckMoveImpl extends DuckMove {
         duck.setCurrentPosition(preDuck.getPrePosition());
     }
 
-    private void moveToNextPosition(Pond pond, Integer step) {
+    private void moveToNextPosition(Integer step) {
         Position currentPosition = duck.getCurrentPosition();
         for (Integer spinAngle : spinAngles) {
             int ajustAngle = currentPosition.getAngle() + spinAngle;
@@ -57,7 +55,7 @@ public class DuckMoveImpl extends DuckMove {
             currentPosition.setAngle(ajustAngle);
             
             Position newPosition = calNewPosition(currentPosition, step);
-            boolean exceedPond = isExceedPond(newPosition, pond);
+            boolean exceedPond = isExceed(newPosition);
             if (exceedPond) {
                 continue;
             }
@@ -67,18 +65,37 @@ public class DuckMoveImpl extends DuckMove {
         }
     }
 
-    private boolean isExceedPond(Position position, Pond pond) {
-        if (position.getX() < pond.getMinX() || position.getX() >= pond.getMaxX()) {
+    private boolean isExceed(Position position) {
+        return  isExceedPond(position) || isStruckRock(position);
+    }
+
+    private boolean isExceedPond(Position position) {
+        Integer duckSize = Double.valueOf(Math.sqrt(duck.getWeight())).intValue();
+
+        if ((position.getX() - duckSize) < pond.getMinX() || (position.getX() + duckSize) >= pond.getMaxX()) {
             return true;
         }
 
-        if (position.getY() < pond.getMinY() || position.getY() >= pond.getMaxY()) {
+        if ((position.getY() - duckSize) < pond.getMinY() || (position.getY() + duckSize) >= pond.getMaxY()) {
             return true;
         }
 
         return false;
     }
+    private boolean isStruckRock(Position currentPosition) {
+        Integer xDuck = currentPosition.getX();
+        Integer yDuck = currentPosition.getY();
+        for (Rock rock : rockList) {
+            Integer xRock = rock.getCurrentPosition().getX();
+            Integer yRock = rock.getCurrentPosition().getY();
 
+            int value = (xDuck - xRock) * (xDuck - xRock) / (ROCK_SIZE_A * ROCK_SIZE_A) + (yDuck - yRock) * (yDuck - yRock) / (ROCK_SIZE_B * ROCK_SIZE_B);
+            if (value < 1) {
+                return true;
+            }
+        }
+        return false;
+    }
     public Position calNewPosition(Position currentPosition, Integer step) {
         Integer angle = currentPosition.getAngle();
         Integer addX = Double.valueOf(step*Math.cos(angle)).intValue();

@@ -6,11 +6,7 @@ import com.object.duck.vo.DuckQueue;
 import static com.object.duck.utils.Constants.DUCK_INIT_COLOR;
 import static com.object.duck.utils.Constants.DUCK_INIT_WEIGHT;
 
-/**
- * @description:
- * @author: Yanghd
- * @create: 2020-05-16 13:35
- **/
+
 public class DuckFactory {
 
     public static Duck born(String name) {

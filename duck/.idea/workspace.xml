@@ -2,37 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fe4ee5e1-9ec0-45c0-b487-995f2c50c7ac" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/Whistle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/impl/WhistleImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/DuckWeight.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/impl/RockAppearImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/scene/LifeTime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/DuckMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/DuckMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/LilyAppear.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/LilyAppear.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/impl/DuckMoveImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/behave/impl/DuckMoveImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/factory/DuckFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/factory/DuckFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/factory/LiLyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/factory/LiLyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/listener/DuckPoolListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/listener/DuckPoolListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/model/BaseModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/model/BaseModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Duck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Duck.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Lily.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Lily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Pond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Pond.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Rock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/model/Rock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/pool/DuckPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/pool/DuckPool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/pool/LiLyPool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/pool/LiLyPool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/scene/LifeTimeForDuck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/scene/LifeTimeForDuck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/JPanelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/SceneJPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/scene/LifeTimeForDuck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/scene/impl/LifeTimeForDuck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/scene/LifeTimeForLily.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/scene/impl/LifeTimeForLily.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/SceneJPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/SceneJPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/SingleThreadPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/SingleThreadPaint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/Test.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/VoiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/VoiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/swing/VoiceTest.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/utils/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/utils/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/DuckQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/DuckQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/DuckWeight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/HeadDuckMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/HeadDuckMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/ModelPool.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/Position.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/object/duck/vo/Position.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/behave/DuckMove.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/behave/DuckMove.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/behave/LilyAppear.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/behave/LilyAppear.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/behave/impl/DuckMoveImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/behave/impl/DuckMoveImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/factory/DuckFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/factory/DuckFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/factory/LiLyFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/factory/LiLyFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/listener/DuckPoolListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/listener/DuckPoolListener.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/model/Duck$DuckType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/model/Duck$DuckType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/model/Duck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/model/Duck.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/model/Lily.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/model/Lily.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/model/Pond.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/model/Pond.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/model/Rock.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/model/Rock.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/pool/DuckPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/pool/DuckPool.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/pool/LiLyPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/pool/LiLyPool.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/scene/LifeTimeForDuck.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/scene/LifeTimeForDuck.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/scene/LifeTimeForLily.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/scene/LifeTimeForLily.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/swing/JPanelTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/scene/LifeTimeForDuck.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/scene/LifeTimeForLily.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/swing/SceneJPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/swing/SceneJPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/swing/SingleThreadPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/swing/SingleThreadPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/swing/Test.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/swing/VoiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/swing/VoiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/swing/VoiceTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/utils/Constants.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/utils/Constants.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/vo/DuckQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/vo/DuckQueue.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/vo/DuckWeight.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/vo/HeadDuckMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/vo/HeadDuckMessage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/vo/ModelPool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/object/duck/vo/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/object/duck/vo/Position.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -43,8 +65,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -58,7 +80,13 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1589816528889" />
     <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
     <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\job\jobs\duck\src\main\resources" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -86,12 +114,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LiLyPool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.object.duck.pool.LiLyPool" />
+    <configuration name="ImageTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.object.duck.swing.ImageTest" />
       <module name="duck" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.object.duck.pool.*" />
+          <option name="PATTERN" value="com.object.duck.swing.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -112,8 +140,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.object.duck.swing.Test" />
+    <configuration name="SceneJPanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.object.duck.swing.SceneJPanel" />
       <module name="duck" />
       <extension name="coverage">
         <pattern>
@@ -140,18 +168,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Test" />
       <item itemvalue="Application.VoiceTest" />
-      <item itemvalue="Application.LiLyPool" />
       <item itemvalue="Application.Constants" />
+      <item itemvalue="Application.SceneJPanel" />
+      <item itemvalue="Application.ImageTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.ImageTest" />
+        <item itemvalue="Application.SceneJPanel" />
         <item itemvalue="Application.Constants" />
         <item itemvalue="Application.VoiceTest" />
-        <item itemvalue="Application.LiLyPool" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -185,16 +213,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/object/duck/scene/LifeTimeForDuck.java</url>
-          <line>127</line>
-          <option name="timeStamp" value="145" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
