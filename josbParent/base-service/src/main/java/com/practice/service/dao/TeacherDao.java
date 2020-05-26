@@ -15,11 +15,11 @@ public class TeacherDao {
 	private static DatabaseConnectionService connectionService = new DatabaseConnectionService();
 
 	public void save(Teacher techer) {
-		String sql = "INSERT INTO `teacher` (`wNo`, `name`, `major`,`hiredate`)VALUES(?,?,?,?)";
-		sql.replaceFirst("\\?", techer.getwNo());
-		sql.replaceFirst("\\?", techer.getName());
-		sql.replaceFirst("\\?", techer.getMajor());
-		sql.replaceFirst("\\?", techer.getHiredate());
+		String sql = "INSERT INTO `teacher` (`wNo`, `name`, `major`,`hiredate`)VALUES('?','?','?','?')";
+		sql = sql.replaceFirst("\\?", techer.getwNo())
+				.replaceFirst("\\?", techer.getName())
+				.replaceFirst("\\?", techer.getMajor())
+				.replaceFirst("\\?", techer.getHiredate());
 
 		Connection conn = connectionService.getConnection();
 		try {

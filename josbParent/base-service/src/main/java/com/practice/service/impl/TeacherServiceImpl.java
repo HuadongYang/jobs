@@ -3,12 +3,10 @@ package com.practice.service.impl;
 import java.util.List;
 
 import com.practice.service.TeacherService;
-import com.practice.service.config.DatabaseConnectionService;
 import com.practice.service.dao.TeacherDao;
 import com.practice.service.domain.Teacher;
 
 public class TeacherServiceImpl implements TeacherService {
-	private static DatabaseConnectionService connectionService = new DatabaseConnectionService();
 
 	private TeacherDao techerDao = new TeacherDao();
 
