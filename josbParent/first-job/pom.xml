@@ -51,6 +51,12 @@
     <artifactId>spring-jdbc</artifactId>
     <version>${spring.version}</version>
 </dependency>
+
+	<dependency>
+    <groupId>com.practice</groupId>
+    <artifactId>base-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+</dependency>
         
   </dependencies>
 
