@@ -75,5 +75,7 @@
   	<module>first-job</module>
     <module>xfire-service</module>
     <module>base-service</module>
+    <module>file-service</module>
+    <module>xfire-client</module>
   </modules>
 </project>
